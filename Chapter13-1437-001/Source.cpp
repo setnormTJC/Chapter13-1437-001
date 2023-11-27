@@ -85,30 +85,76 @@ public:
         //return (this->cost == otherVehicle.cost
         //    &&
         //    this->mileRange == otherVehicle.mileRange);
-            
+    }
 
+    Vehicle operator + (Vehicle otherVehicle)
+    {
+        Vehicle resultingVehicle; 
+
+        resultingVehicle.cost = this->cost + otherVehicle.cost; 
+
+        resultingVehicle.mileRange = this->mileRange + otherVehicle.mileRange;
+
+        return resultingVehicle; 
+    }
+
+    void print()
+    {
+        cout << "cost:\tmileRange: " << endl; 
+        cout << this->cost << "\t" << mileRange << endl; 
+    }
+
+    bool operator > (const Vehicle& other)
+    {
+        if (this->cost > other.cost
+            &&
+            this->mileRange > other.mileRange)
+        {
+            return true; 
+        }
+
+        else
+        {
+            return false; 
+        }
     }
 };
 
 int main()
 {
+    int sum = 5 + 4; 
+    //int a = 5; 
+
+
     Vehicle v1{ 9999.99, 300 };
     Vehicle v2{ 9999.99, 300 };
+
+    string a = "adsf"; 
+    string b = "1234";
+
+    string c = a + b; 
+
+    Vehicle v3 = v1 + v2; 
+    //v3.print(); 
+    
+    cout << std::boolalpha << (v1 > v3) << endl; 
+
+    //cout << v3
 
     //Person p1; 
     //Person p2; 
 
     //if (p1 > p2)
 
-    if (v1 == v2)
-    {
-        cout << "The two vehicles specs are the same!" << endl;
-    }
+    //if (v1 == v2)
+    //{
+    //    cout << "The two vehicles specs are the same!" << endl;
+    //}
 
-    else
-    {
-        cout << "NOT the same" << endl; 
-    }
+    //else
+    //{
+    //    cout << "NOT the same" << endl; 
+    //}
 
     //std::cout
     //ThisDemoClass tdcObject; 
