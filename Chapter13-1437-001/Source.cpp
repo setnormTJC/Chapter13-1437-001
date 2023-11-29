@@ -118,28 +118,72 @@ public:
             return false; 
         }
     }
+
+    //Java-style approach:
+    bool hasGreaterVehicleAttributes(const Vehicle& other)
+    {
+        if (this->cost > other.cost
+            &&
+            this->mileRange > other.mileRange)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+    }
+
+    void operator ++ ()
+    {
+        this->cost = cost + 0.01;
+        mileRange++;
+    }
+
+    friend ostream& operator<< (ostream& os, const Vehicle& vObj);
 };
+
+ostream& operator << (ostream& os, const Vehicle& vObj)
+{
+    os << vObj.cost << "\t\t\t\n" << vObj.mileRange << endl; 
+
+    return os;
+}
 
 int main()
 {
     int sum = 5 + 4; 
     //int a = 5; 
 
+    Vehicle v1{ 101.99, 301 };
+    
+    ++v1;
+    v1.print();
 
-    Vehicle v1{ 9999.99, 300 };
+    cout << v1 << endl;
+
     Vehicle v2{ 9999.99, 300 };
 
-    string a = "adsf"; 
-    string b = "1234";
+    //string a = "adsf"; 
+    //string b = "1234";
 
-    string c = a + b; 
+    //string c = a + b; 
+   
 
     Vehicle v3 = v1 + v2; 
     //v3.print(); 
     
-    cout << std::boolalpha << (v1 > v3) << endl; 
-
+    //cout << std::boolalpha << (v1 > v3) << endl; 
+    //cout << v1.hasGreaterVehicleAttributes(v3) << endl; 
     //cout << v3
+
+    //int C = 0; 
+    //C++; 
+
+
+
+
 
     //Person p1; 
     //Person p2; 
